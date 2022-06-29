@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header" />
+<body roleId="page-top" data-spy="scroll"
+	data-target=".navbar-fixed-top">
+<head th:replace="common/header :: navbar" />
+
+
+<div class="container main">
+
+
+	<div class="rowq">
+		<div class="col-sm-5">
+
+			<div class="card1">
+				<h3 class="ti1">Account Number</h3>
+				<p class="car1" th:text="${savingsAccount.accountNumber}"></p>
+
+
+			</div>
+		</div>
+		<div class="col-sm-5">
+
+			<div class="card2">
+				<h3 class="ti2">Account Balance</h3>
+				<p class="car1" th:text="${savingsAccount.accountBalance}"></p>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div th:replace="common/header :: body-bottom-scripts" />
+
+
+</body>
+</html>

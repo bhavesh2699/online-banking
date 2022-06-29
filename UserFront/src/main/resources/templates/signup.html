@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header" />
+<body roleId="page-top" data-spy="scroll"
+	data-target=".navbar-fixed-top">
+	<!--<head th:replace="common/header :: navbar" />-->
+	<div class="container">
+		<div class="row main">
+			<div class="panel-heading">
+				<div class="panel-title text-center">
+					<h1 class="title">Sign Up</h1>
+					<hr />
+				</div>
+			</div>
+			<div class="main-login main-center">
+				<form class="form-horizontal" method="post" id="form-signup" th:action="@{/signup}" onsubmit="confirmation()" enctype="multipart/form-data">
+
+					<div class="form-group">
+						<label for="firstName" class="cols-sm-2 control-label">First
+							Name</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa"
+									aria-hidden="true"></i></span> <input type="text" class="form-control"
+									th:value="${user.firstName}" id="firstName" name="firstName"
+									roleId="firstname" placeholder="Enter your first name"
+									required="required" />
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="lastName" class="cols-sm-2 control-label">Last
+							Name</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa"
+									aria-hidden="true"></i></span> <input type="text" class="form-control"
+									th:value="${user.lastName}" id="lastName" name="lastName"
+									roleId="lastName" placeholder="Enter your last name"
+									required="required" />
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="phone" class="cols-sm-2 control-label">Phone</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-phone fa"
+									aria-hidden="true"></i></span> <input type="text" class="form-control"
+									th:value="${user.phone}" id="phone" name="phone" roleId="phone"
+									placeholder="xxx-xxx-xxxx" required="required" />
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="email" class="cols-sm-2 control-label">Your
+							Email</label><span class="bg-danger pull-right" th:if="${emailExists}">Email
+							already exists</span>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="fa fa-envelope fa" aria-hidden="true"></i></span> <input
+									type="text" class="form-control" th:value="${user.email}"
+									id="email" name="email" roleId="email"
+									placeholder="Enter your Email" required="required" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="permanentAddress" class="cols-sm-2 control-label">Permanent Address</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="fa fa-map-marker fa-lg" aria-hidden="true"></i></span> <input
+									type="text" class="form-control"
+									th:value="${user.permanentAddress}" id="permanentAddress" name="permanentAddress"
+									roleId="permanentAddress" placeholder="Address"
+									required="required" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="currentAddress" class="cols-sm-2 control-label">Current Address</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="fa fa-map-marker fa-lg" aria-hidden="true"></i></span> <input
+									type="text" class="form-control"
+									th:value="${user.currentAddress}" id="currentAddress" name="currentAddress"
+									roleId="currentAddress" placeholder="Address"
+									required="required" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="aadharNumber" class="cols-sm-2 control-label">Aadhar Number</label><span
+                        class="bg-danger pull-right" th:if="${aadharNumberExists}">Aadhar already exists</span>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="fa fa-id-card fa-lg" aria-hidden="true"></i></span> <input
+									type="text" class="form-control"
+									th:value="${user.aadharNumber}" minlength="12" maxlength="12" id="aadharNumber" name="aadharNumber"
+									roleId="aadharNumber" placeholder="xxxx-xxxx-xxxx"
+									required="required" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="panNumber" class="cols-sm-2 control-label">PAN Number</label><span
+                        class="bg-danger pull-right" th:if="${panNumberExists}">PAN already exists</span>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="fa fa-id-card fa-lg" aria-hidden="true"></i></span> <input
+									type="text" class="form-control"
+									th:value="${user.panNumber}" minlength="10" maxlength="10" id="panNumber" name="panNumber"
+									roleId="panNumber" placeholder="xxxxxxxxxx"
+									required="required" />
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="username" class="cols-sm-2 control-label">Username</label><span
+							class="bg-danger pull-right" th:if="${usernameExists}">Username
+							already exists</span>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-users fa"
+									aria-hidden="true"></i></span> <input type="text" class="form-control"
+									th:value="${user.username}" id="username" name="username"
+									roleId="username" placeholder="Enter your Username"
+									required="required" />
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="password" class="cols-sm-2 control-label">Password</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="fa fa-lock fa-lg" aria-hidden="true"></i></span> <input
+									type="password" class="form-control"
+									th:value="${user.password}" id="password" name="password"
+									roleId="password" placeholder="Enter your Password"
+									required="required" />
+							</div>
+							<div class="checkbox">
+								<label> <input id="showPassword" type="checkbox" />Show
+									Password
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="passportSizePhoto" class="cols-sm-2 control-label">Passport Size Photo</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-file-image-o fa"
+									aria-hidden="true"></i></span> <input type="file" 
+									accept="image/png, image/jpeg" class="form-control"
+									th:value="${user.passportSizePhoto}" id="passportSizePhoto" name="passportSizePhoto"
+									roleId="passportSizePhoto"
+									required="required"/>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="aadharPhoto" class="cols-sm-2 control-label">Aadhar Card Photo</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-file-image-o fa"
+									aria-hidden="true"></i></span> <input type="file" 
+									accept="image/png, image/jpeg" class="form-control"
+									th:value="${user.aadharPhoto}" id="aadharPhoto" name="aadharPhoto"
+									roleId="aadharPhoto"
+									required="required"/>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="panPhoto" class="cols-sm-2 control-label">Pan Card Photo</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-file-image-o fa"
+									aria-hidden="true"></i></span> <input type="file" 
+									accept="image/png, image/jpeg" class="form-control"
+									th:value="${user.panPhoto}" id="panPhoto" name="panPhoto"
+									roleId="panPhoto"
+									required="required"/>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group ">
+						<button type="submit"
+							class="btn btn-primary btn-lg btn-block login-button">Sign
+							up!</button>
+					</div>
+
+					<hr />
+
+					<div class="form-group ">
+						<a class="btn btn-info btn-lg btn-block login-button"
+							th:href="@{/}">Cancel</a>
+					</div>
+				</form>
+				
+				<!-- Modal Box -->
+				<div class="modal" tabindex="-1" role="dialog" style="display:none" id="exampleModal">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h2 class="modal-title">KYC Confirmation</h2>
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					      </div>
+					      <div class="modal-body">
+					        <p id="id1"></p>
+					        <p id="id2"></p>
+					        <p id="id3"></p>
+					        <p id="id4"></p>
+					        <p id="id5"></p>
+					        <p id="id6"></p>
+					        <p id="id7"></p>
+					        <p id="id8"></p>
+					        <p id="id9"></p>
+					        					        
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-primary" onclick="submitform()">Confirm</button>
+					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Edit</button>
+					      </div>
+					    </div>
+					  </div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+
+	<div th:replace="common/header :: body-bottom-scripts" />
+
+</body>
+</html>

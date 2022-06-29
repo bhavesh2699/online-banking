@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header" />
+<body>
+	<!-- Navigation -->
+	<div th:fragment="navbar">
+		<img class="img-responsive" src="/images/banner.png" alt="banner" />
+
+		<nav class="navbar navbar-default " role="navigation">
+			<div class="container">
+				<div class="navbar-header page-scroll">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<!-- <a class="navbar-brand page-scroll" th:href="@{/userFront}">Home</a>&nbsp;-->
+					<a class="navbar-brand page-scroll" th:href="@{/Pending}">Pending</a>&nbsp;
+					&nbsp; <a class="navbar-brand page-scroll" th:href="@{/Confirmed}">Confirmed</a>&nbsp;
+					&nbsp; <a class="navbar-brand page-scroll" th:href="@{/Rejected}">Rejected</a>
+					&nbsp;
+
+
+				</div>
+
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse  navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">Admin <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a th:href="@{/logout}">Logout</a></li>
+							</ul></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container -->
+		</nav>
+
+	</div>
+	<br />
+	<div class="form-group">
+
+
+		&nbsp;&nbsp;
+		<table class="table">
+			<thead class="thead-light">
+				<tr>
+
+					<th scope="col">Username</th>
+					<th scope="col">First Name</th>
+					<th scope="col">Email</th>
+					<th scope="col">Phone</th>
+					<th scope="col">Adhar Number</th>
+					<th scope="col">Pan Number</th>
+					<th scope="col">Action</th>
+				</tr>
+
+			</thead>
+			<tbody>
+
+				<tr th:each="item : ${user2}">
+					<td><span th:text="${item.username}"></span></td>
+					<td><span th:text="${item.firstName}"></span></td>
+					<td><span th:text="${item.email}"></span></td>
+					<td><span th:text="${item.phone}"></span></td>
+					<td><span th:text="${item.aadharNumber}"></span></td>
+					<td><span th:text="${item.panNumber}"></span></td>
+					<td><a th:href="@{'/Confirm/single/' + ${item.username}}"
+						class="btn btn-primary" name="confirm">Confirm</a> <a
+						th:href="@{'/Reject/single/' + ${item.username}}"
+						class="btn btn-secondary" id="reject">Reject</a></td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+
+	<div th:replace="common/header :: body-bottom-scripts" />
+
+</body>
+</html>

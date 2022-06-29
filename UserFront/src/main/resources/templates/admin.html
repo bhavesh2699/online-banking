@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<body>
+	<!-- Navigation -->
+	<div th:fragment="navbar">
+		<img class="img-responsive" src="/images/banner.png" alt="banner" />
+
+		<nav class="navbar navbar-default " role="navigation">
+			<div class="container">
+				<div class="navbar-header page-scroll">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<!--  <a class="navbar-brand page-scroll" th:href="@{/userFront}">Home</a>&nbsp; &nbsp;-->
+					<a class="navbar-brand page-scroll" th:href="@{/Pending}">Pending</a>&nbsp;
+					&nbsp; <a class="navbar-brand page-scroll" th:href="@{/Confirmed}">Confirmed</a>&nbsp;
+					&nbsp; <a class="navbar-brand page-scroll" th:href="@{/Rejected}">Rejected</a>
+
+				</div>
+
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse  navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">Admin <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a th:href="@{/logout}">Logout</a></li>
+							</ul></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container -->
+		</nav>
+	</div>
+	<br />
+	<br />
+	<!--  <div class="form-group">
+						<label for="accountnumber" class="cols-sm-2 control-label" id="cc">Account Number</label>
+						<div class="cols-sm-10">
+							
+								<p class="form-control"
+									th:text="${savingsAccount.accountNumber}" id="account" />
+						</div></div>
+						
+						
+						<div class="form-group">
+						<label for="accountbalance" class="cols-sm-2 control-label" id="cc">Account Balance</label>
+						<div class="cols-sm-10">
+							
+								<p class="form-control"
+									th:text="${savingsAccount.accountBalance}" id="account" />
+									
+									 
+							</div>
+						</div>-->
+
+	<div th:replace="common/header :: body-bottom-scripts" />
+
+</body>
+</html>

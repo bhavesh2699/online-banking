@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header" />
+<body roleId="page-top" data-spy="scroll"
+	data-target=".navbar-fixed-top">
+<head th:replace="common/header :: navbar" />
+<br />
+<br />
+<br />
+<br />
+
+<div class="container">
+
+
+	<div class="contain">
+
+		<img id="ima" th:attr="src=${profilepage1.passportSizePhoto}" /> <a
+			class="overlay" th:href="${profilepage1.passportSizePhoto}"
+			th:attr="download=${profilepage1.passportSizePhoto}"> Click here
+			to download Photo</a>
+
+	</div>
+	<div class="contain">
+
+		<img id="ima1" th:attr="src=${profilepage1.panPhoto}" />
+
+		<a
+			class="overlay1" th:href="${profilepage1.panPhoto}"
+			th:attr="download=${profilepage1.panPhoto}"> Click here
+			to download Pan-Card </a>
+	</div>
+	<div class="contain">
+
+		<img id="ima2" th:attr="src=${profilepage1.aadharPhoto}" />
+		<a
+			class="overlay2" th:href="${profilepage1.aadharPhoto}"
+			th:attr="download=${profilepage1.aadharPhoto}"> Click here
+			to download Adhar-Card</a>
+	</div>
+	<div class="form-group">
+		<label for="accountnumber" id="cc">First Name </label><span
+			class="form-control" th:text="${profilepage.firstName}" id="account"></span>
+	</div>
+
+
+	<div class="form-group">
+		<label for="accountbalance" class="cols-sm-2 control-label" id="cc">Last
+			Name</label>
+		<div class="cols-sm-10">
+			<p class="form-control" th:text="${profilepage.permanentAddress}"
+				id="account" />
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label for="accountbalance" class="cols-sm-2 control-label" id="cc">User
+			Name</label>
+		<div class="cols-sm-10">
+			<p class="form-control" th:text="${profilepage.username}"
+				id="account" />
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="accountbalance" class="cols-sm-2 control-label" id="cc">Current
+			Address</label>
+		<div class="cols-sm-10">
+
+			<p class="form-control" th:text="${profilepage.currentAddress}"
+				id="account" />
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label for="accountbalance" class="cols-sm-2 control-label" id="cc">Permanent
+			Address</label>
+		<div class="cols-sm-10">
+
+			<p class="form-control" th:text="${profilepage.permanentAddress}"
+				id="account" />
+		</div>
+	</div>
+
+
+	<div class="form-group">
+
+		<label for="accountbalance" class="cols-sm-2 control-label" id="cc">Phone</label>
+		<div class="cols-sm-10">
+
+			<p class="form-control" th:text="${profilepage.phone}" id="account" />
+
+
+		</div>
+
+	</div>
+
+	<div class="form-group">
+
+		<label for="accountbalance" class="cols-sm-2 control-label" id="cc">Email</label>
+		<div class="cols-sm-10">
+
+			<p class="form-control" th:text="${profilepage.email}" id="account" />
+		</div>
+	</div>
+
+	<div class="form-group">
+
+		<label for="accountbalance" class="cols-sm-2 control-label" id="cc">Aadhar
+			Number</label>
+		<div class="cols-sm-10">
+			<p class="form-control" th:text="${profilepage.aadharNumber}"
+				id="account" />
+		</div>
+	</div>
+
+	<div class="form-group">
+
+		<label for="accountbalance" class="cols-sm-2 control-label" id="cc">Pan
+			Number</label>
+		<div class="cols-sm-10">
+
+			<p class="form-control" th:text="${profilepage.panNumber}"
+				id="account" />
+		</div>
+	</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+<div th:replace="common/header :: body-bottom-scripts" />
+
+</body>
+</html>
