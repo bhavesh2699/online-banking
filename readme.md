@@ -11,7 +11,7 @@
 - H2 Console
 
 ## 🍳 FlowChart
-![](Login.PNG)
+![](Flow.PNG)
 
 # 👟 Project Setup
 
