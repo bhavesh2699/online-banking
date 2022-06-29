@@ -24,7 +24,7 @@
 ### Show Aggregated view if all Balances across all account
 - Saving Account balance
 
-# 👟 Project Setup
+## Project Setup
 
 ```text
 - Clone and import project as Maven in eclipse
